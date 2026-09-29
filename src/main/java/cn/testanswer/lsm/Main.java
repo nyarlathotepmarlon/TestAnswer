@@ -15,7 +15,6 @@ import java.util.Optional;
 /** IDEA 可直接运行此 main；无参数时进入交互式 CLI。 */
 public final class Main {
     private Main() { }
-
     public static void main(String[] args) {
         PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         PrintStream err = new PrintStream(System.err, true, StandardCharsets.UTF_8);
