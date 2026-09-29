@@ -1,0 +1,31 @@
+> put user:001 Alice
+{"ok":true,"operation":"put","key":"user:001"}
+exit=0
+> put user:002 Bob
+{"ok":true,"operation":"put","key":"user:002"}
+exit=0
+> flush
+{"ok":true,"operation":"flush"}
+exit=0
+> put user:001 Alice-updated
+{"ok":true,"operation":"put","key":"user:001"}
+exit=0
+> get user:001
+{"key":"user:001","found":true,"value":"Alice-updated"}
+exit=0
+> delete user:002
+{"ok":true,"operation":"delete","key":"user:002"}
+exit=0
+> compact
+{"ok":true,"operation":"compact"}
+exit=0
+> scan --from user:001 --to user:003
+{"entries":[{"key":"user:001","value":"Alice-updated"}],"count":1}
+exit=0
+> get user:002
+{"key":"user:002","found":false,"value":null}
+exit=3
+> stats
+{"lastSequence":4,"checkpoint":4,"memTableEntries":0,"memTableBytes":0,"walBytes":0,"sstableCount":1,"sstableEntries":1,"sstableBytes":134}
+exit=0
+CLI smoke assertions passed.

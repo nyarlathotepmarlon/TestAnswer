@@ -1,0 +1,10 @@
+/target/
+/data/
+/submission/
+/SUBMISSION_INFO.txt
+/.mvn/repository/
+/.idea/
+*.iml
+*.log
+*.zip
+.DS_Store

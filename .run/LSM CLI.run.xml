@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="LSM CLI" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="cn.testanswer.lsm.Main" />
+    <module name="lsm-tree" />
+    <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
+    <option name="PROGRAM_PARAMETERS" value="--dir data/idea-store shell" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <method v="2"><option name="Make" enabled="true" /></method>
+  </configuration>
+</component>

@@ -1,0 +1,10 @@
+=== Java LSM-Tree 完整演示 ===
+数据目录: C:\Users\86135\IdeaProjects\TestAnswer\data\demo-890635374641830943
+1. 写入、覆盖、删除: {user:001=张三（已更新）, user:003=王五, user:004=中文与 emoji 🚀}
+2. 关闭前统计（最后一条仅在 WAL/MemTable）: {"lastSequence":6,"checkpoint":5,"memTableEntries":1,"memTableBytes":57,"walBytes":57,"sstableCount":2,"sstableEntries":5,"sstableBytes":412}
+3. 重新打开，WAL 恢复成功: 中文与 emoji 🚀
+4. 范围查询 [user:001, user:004): {user:001=张三（已更新）, user:003=王五}
+5. 压缩前: {"lastSequence":6,"checkpoint":6,"memTableEntries":0,"memTableBytes":0,"walBytes":0,"sstableCount":3,"sstableEntries":6,"sstableBytes":553}
+6. 压缩后: {"lastSequence":6,"checkpoint":6,"memTableEntries":0,"memTableBytes":0,"walBytes":0,"sstableCount":1,"sstableEntries":3,"sstableBytes":262}
+7. 压缩后再次重启: {user:001=张三（已更新）, user:003=王五, user:004=中文与 emoji 🚀}
+所有演示断言通过。真实 JVM 非正常退出恢复由 RecoveryTest 验证。
